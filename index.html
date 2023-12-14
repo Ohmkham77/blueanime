@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
+    <script src="libjass.js" defer></script>
+    <script src="scripts.js" defer></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">]
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    window.open("videoplayer.html", "_self");
+                }
+            });
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <section class="header-con">
+            <div class="h-col-1">
+                <div class="menu btn-con">
+                    <button class="menu-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24">
+                            <path
+                                d="M 0 2 L 20 2 L 20 4 L 0 4 Z M 0 9 L 20 9 L 20 11 L 0 11 Z M 0 16 L 20 16 L 20 18 L 0 18 L 0 16"
+                                fill="#00000" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="logo-con">
+                    <img src="./img/logowithTextIcon.png" alt="">
+                </div>
+            </div>
+            <div class="h-col-2">
+                <div class="search-con">
+                    <input type="search" class="search" placeholder="Search">
+                </div>
+            </div>
+            <div class="h-col-3">
+                <div class="axiually-menu-con">
+                    <div class="favorite btn-con">
+                        <button class="favorite-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 3.5 20 18">
+                                <path
+                                    d="M 0 10 C 0 8 2 5 5 5 C 8 5 9.65 6.835 10 8 C 10.376 6.823 12 5 15 5 C 18 5 20 8 20 10 C 20 16 13 17 10 22 C 7 17 0 16 0 10"
+                                    fill="#00000" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="profile btn-con">
+                        <button class="profile-btn">
+                            <div class="user-img"
+                                style="border: 1px solid; border-radius: 50%; width: 100%; height: 100%;"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+    <main>
+        <div class="main-container">
+            <div class="m-col-1">
+                <section class="video-player-section">
+                    <div class="video-container paused">
+                        <div class="video-controls-container">
+                            <div class="timeline-container">
+                                <div class="timeline">
+                                    <div class="timeline-indicator"></div>
+                                </div>
+                            </div>
+                            <div class="controls">
+                                <button class="play-pause-btn">
+                                    <svg class="play icon" xmlns="http://www.w3.org/2000/svg" viewBox="5 5 15 15">
+                                        <path d="M6 5 6 20 19 12Z" fill="currentColor" />
+                                    </svg>
+                                    <svg class="pause icon" xmlns="http://www.w3.org/2000/svg" viewBox="4 4 17 17">
+                                        <path d="M 6 5 V 20 H 11 V 5 Z M 14 5 V 20 H 19 V 5 Z" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="next-btn">
+                                    <svg class="next icon" xmlns="http://www.w3.org/2000/svg" viewBox="4 4 17 17">
+                                        <path d="M 5 5 V 20 L 16 12 Z M 16 5 L 16 20 L 19 20 L 19 5 Z" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <div class="volumn-contaiiner">
+                                    <button class="volumn-btn">
+                                        <svg class="volumn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="5 5 15 15">
+                                            <path
+                                                d="M5 10 5 15 7 15 11 20 11 5 7 10ZM13 5 13 20C22 18 22 6 13 5M13 8C18 9 18 16 13 17M13 10 13 15C16 15 16 10 13 10"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="duration-container">
+                                    <span class="current-time">0:00</span> / <span class="total-time"></span>
+                                </div>
+                                <button class="caption-btn">
+                                    <svg class="caption-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -2 23 23">
+                                        <path
+                                            d="M0 17C0 19 1 20 3 20L20 20C22 20 23 19 23 17L23 3C23 1 22 0 20 0L3 0C1 0 0 1 0 3ZM4 7C4 6 4 6 5 6L9 6C10 6 10 6 10 7L10 9 8 9 8 8 6 8 6 12 8 12 8 11 10 11 10 13C10 14 10 14 9 14L5 14C4 14 4 14 4 13ZM13 7C13 6 13 6 14 6L18 6C19 6 19 6 19 7L19 9 17 9 17 8 15 8 15 12 17 12 17 11 19 11 19 13C19 14 19 14 18 14L14 14C13 14 13 14 13 13Z"
+                                            fill="currentColor"></path>
+                                    </svg>
+                                </button>
+                                <button class="setting-btn">
+                                    <svg class="setting-icon" xmlns="http://www.w3.org/2000/svg" viewBox="5 5 15 15">
+                                        <path
+                                            d="M5 11 6.15 8.359 8.013 8.607 8.553 7.896 8.224 6.375 10.99 5.142 12.013 6.577 12.983 6.55 14.027 5.172 16.515 6.377 16.078 7.95 16.772 8.662 18.416 8.239 19.769 10.914 18.362 12.021 18.376 12.932 19.859 13.77 18.777 16.506 17.057 16.101 16.28 16.868 16.635 18.447 13.876 19.603 12.995 18.163 11.976 18.152 11.11 19.603 8.284 18.551 8.462 16.921 7.874 16.3 6.3 16.566 5.188 13.951 6.363 12.903 6.377 12.078ZM10.088 10.103A1 1 0 0014.508 14.702a1 1 0 00-4.42-4.599"
+                                            fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="full-screen-btn">
+                                    <svg class="open" xmlns="http://www.w3.org/2000/svg" viewBox="5 5 15 15">
+                                        <path
+                                            d="M5 5 11 5 11 7 7 7 7 11 5 11ZM14 5 14 7 18 7 18 11 20 11 20 5ZM5 14 7 14 7 18 11 18 11 20 5 20ZM15 18 15 20 20 20 20 14 18 14 18 18Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                    <svg class="close" xmlns="http://www.w3.org/2000/svg" viewBox="5 5 15 15">
+                                        <path
+                                            d="M5 11 11 11 11 5 9 5 9 9 5 9ZM14 5 14 11 20 11 20 9 16 9 16 5ZM5 14 11 14 11 20 9 20 9 16 5 16ZM14 14 20 14 20 16 16 16 16 20 14 20Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="video-controls-onVideo opacity-zero">
+                            <button class="play-pause-btn">
+                                <svg class="play icon" xmlns="http://www.w3.org/2000/svg" viewBox="3 4.5 16 16">
+                                    <path d="M6 5 6 20 18.5 12Z" fill="currentColor" />
+                                </svg>
+                                <svg class="pause icon" xmlns="http://www.w3.org/2000/svg" viewBox="4 4 17 17">
+                                    <path d="M 6 5 V 20 H 11 V 5 Z M 14 5 V 20 H 19 V 5 Z" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <video id="my-player" preload="auto">
+                            <source src="./videos/1Kagegure.mkv">
+                            </source>
+                        </video>
+                    </div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var options = {
+                                src: './sub/Kakeep1.ass',
+                                // src: 'https://raw.githubusercontent.com/Ohmkham77/playerEg/93b8a2b237a1119b11c62d1527bc6b56eecb73c4/sub/OnePiece%20Ep1.ass',
+                                rate: 1,
+                                delay: 0,
+                                player: video,
+                                subCon: videoContainer,
+                            };
+
+                            window.libjass_ass(options);
+                        });
+
+                    </script>
+                </section>
+                <section class="video-content-section">
+                    <div class="current-video-category">
+                        <a href="" class="category-link">
+                            <h4 class="category-title">
+                                Kakegurui : Compulsive Gambler
+                            </h4>
+                        </a>
+                        <div class="current-category-rating">
+                            <div class="star-rating">
+                                <span class="star-icon-con"><img class="star-icon icon"
+                                        src="./img/icon/fill/fil-star.png" alt="star-icon"></span>
+                                <span class="rating-number">4.5 (1.4K)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-info-container">
+                        <div class="current-video-title-con">
+                            <h2 class="current-video-title">
+                                The Woman Called Yumeko Jabami
+                            </h2>
+                            <h5>
+                                Released on Feb,1,2018
+                            </h5>
+                        </div>
+                        <br>
+                        <div class="current-video-script less">
+                            <p>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The private Hyakkao Academy is ostensibly an ordinary and
+                                prestigious school, but in reality, it is a school governed by
+                                a rule that gambling determines the order of students. Ryota Suzui was treated like a
+                                livestock by Meari Saotome, who
+                                was the strongest gambler in the class. In Suzui's class, a beautiful black-haired girl,
+                                Yumeko Snake Eater, transfers
+                                to the school.
+                            </p>
+                            <p>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yumeko, who doesn't know the rules of the school yet,
+                                immediately applies for a game in
+                                an original gambling called
+                                Voting Janken.
+                            </p>
+                        </div>
+                        <div class="expand-sizer-btn-con" style="padding-left: 10px;">
+                            <button class="see-more-btn" style="width: fit-content; padding: 0; display: block;">
+                                <h3>See More...</h3>
+                            </button>
+                            <button class="see-less-btn" style="width: fit-content; padding: 0; display: none;">
+                                <h3>See Less</h3>
+                            </button>
+                        </div>
+                        <script>
+                            const CurrentVideoScript = document.querySelector(".current-video-script");
+                            const CurrentVideoScriptSizerBtnCon = document.querySelector(".expand-sizer-btn-con");
+                            const CurrentVideoScriptSeeLessBtn = document.querySelector(".see-less-btn");
+                            const CurrentVideoScriptSeeMoreBtn = document.querySelector(".see-more-btn");
+
+
+                            CurrentVideoScriptSizerBtnCon.addEventListener("click", function () {
+                                if (CurrentVideoScript.classList.contains("full")) {
+                                    CurrentVideoScript.style.maxHeight = "75px";
+                                    CurrentVideoScript.classList.remove("full");
+                                    CurrentVideoScript.classList.add("less");
+                                    CurrentVideoScriptSeeLessBtn.style.display = "none";
+                                    CurrentVideoScriptSeeMoreBtn.style.display = "block";
+                                } else {
+                                    CurrentVideoScript.style.maxHeight = CurrentVideoScript.scrollHeight + "px";
+                                    CurrentVideoScript.classList.add("full");
+                                    CurrentVideoScript.classList.remove("less");
+                                    CurrentVideoScriptSeeLessBtn.style.display = "block";
+                                    CurrentVideoScriptSeeMoreBtn.style.display = "none";
+                                }
+                            });
+                        </script>
+
+                        <br>
+                        <div class="current-video-genres">
+                            <h3 class="genre-title">
+                                Genre:
+                            </h3>
+                            <div class="genre-link-btn">
+                                <a class="genre-link" href="">Drama</a>
+                            </div>
+                            <div class="genre-link-btn">
+                                <a class="genre-link" href="">Mystery</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-menu-container">
+                        <div class="like-dislike-action action-btn-con">
+                            <div class="like-btn action-btn">
+                                <img class="like-icon icon" src="./img/icon/regular/regular-like.png" alt="like-icon">
+                            </div>
+                            <span style="padding-left: 8px;">3.5K</span>
+                            <div class="br-stick"></div>
+                            <div class="dislike-btn action-btn">
+                                <img class="like-icon icon" src="./img/icon/regular/regular-dislike.png"
+                                    alt="dislike-icon">
+                            </div>
+                        </div>
+                        <div class="share-action action-btn-con">
+                            <div class="share-btn action-btn">
+                                <img class="share-icon icon" src="./img/icon/regular/regular-share.png"
+                                    alt="share-icon">
+                            </div>
+                            <span style="padding-left: 8px;">Share</span>
+                        </div>
+                        <div class="watchlist-action action-btn-con">
+                            <div class="watchlist-btn action-btn">
+                                <img class="watchlist-icon icon" src="./img/icon/regular/regular-watch-list.png"
+                                    alt="share-icon">
+                            </div>
+                            <span style="padding-left: 8px;">Watch Later</span>
+                        </div>
+                    </div>
+                </section>
+                <section class="video-comment-section">
+                    <div class="comment-header-container">
+                        <h2 class="comment-header-title">
+                            Comments
+                        </h2>
+                        <div class="sort-menu-button action-btn">
+                            <div class="sort-icon-container">
+                                <img class="icon" src="./img/icon/regular/regular-sort-by.png" alt="sort-icon">
+                            </div>
+                            <span>
+                                Sort by
+                            </span>
+                        </div>
+                    </div>
+                    <div class="comment-writting-container">
+                        <div class="user-profile-container">
+                            <img src="" alt="">
+                        </div>
+                        <div class="comment-writtin-place">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="comment-content-list-container">
+                        <div class="comment-content-list list">
+                            <div class="author-profile-container">
+
+                            </div>
+                            <div class="author-content-container">
+
+                            </div>
+                            <div class="action-button-container">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="m-col-2">
+                <div class="related-episode-con">
+                    <div class="related-episode-title-con">
+                        <h3 class="related-episode-title">
+                            Episode
+                        </h3>
+
+                    </div>
+                    <br>
+                    <div class="video-episode-list-con">
+                        <div class="video-episode-con">
+                            <div class="episode-thumbnail-con">
+                                <img class="episode-thumbnail" src="" alt="">
+                                <div class="this-episode-duration-con">
+                                    <p class="episode-duration"></p>
+                                </div>
+                            </div>
+                            <div class="episode-title-con">
+                                <h4>Kakegurui Ep4</h4>
+                            </div>
+                        </div>
+                        <div class="video-episode-con">
+                            <div class="episode-thumbnail-con">
+                                <img class="episode-thumbnail" src="" alt="">
+                                <div class="this-episode-duration-con">
+                                    <p class="episode-duration"></p>
+                                </div>
+                            </div>
+                            <div class="episode-title-con">
+                                <h4>Kakegurui Ep4</h4>
+                            </div>
+                        </div>
+                        <div class="video-episode-con">
+                            <div class="episode-thumbnail-con">
+                                <img class="episode-thumbnail" src="" alt="">
+                                <div class="this-episode-duration-con">
+                                    <p class="episode-duration"></p>
+                                </div>
+                            </div>
+                            <div class="episode-title-con">
+                                <h4>Kakegurui Ep4</h4>
+                            </div>
+                        </div>
+                        <div class="video-episode-con">
+                            <div class="episode-thumbnail-con">
+                                <img class="episode-thumbnail" src="" alt="">
+                                <div class="this-episode-duration-con">
+                                    <p class="episode-duration"></p>
+                                </div>
+                            </div>
+                            <div class="episode-title-con">
+                                <h4>Kakegurui Ep4</h4>
+                            </div>
+                        </div>
+                        <div class="video-episode-con">
+                            <div class="episode-thumbnail-con">
+                                <img class="episode-thumbnail" src="" alt="">
+                                <div class="this-episode-duration-con">
+                                    <p class="episode-duration"></p>
+                                </div>
+                            </div>
+                            <div class="episode-title-con">
+                                <h4>Kakegurui Ep4</h4>
+                            </div>
+                        </div>
+                        <div class="video-episode-con">
+                            <div class="episode-thumbnail-con">
+                                <img class="episode-thumbnail" src="" alt="">
+                                <div class="this-episode-duration-con">
+                                    <p class="episode-duration"></p>
+                                </div>
+                            </div>
+                            <div class="episode-title-con">
+                                <h4>Kakegurui Ep4</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="related-anime-con">
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

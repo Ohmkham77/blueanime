@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="libjass.js" defer></script>
+    <script src="scripts.js" defer></script>
+
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+    <div class="video-container paused">
+        <div class="video-controls-container">
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-indicator"></div>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="play-pause-btn">
+                    <svg class="play icon" xmlns="http://www.w3.org/2000/svg" viewBox="5 5 15 15">
+                        <path d="M6 5 6 20 19 12Z" fill="currentColor" />
+                    </svg>
+                    <svg class="pause icon" xmlns="http://www.w3.org/2000/svg" viewBox="4 4 17 17">
+                        <path d="M 6 5 V 20 H 11 V 5 Z M 14 5 V 20 H 19 V 5 Z" fill="currentColor" />
+                    </svg>
+                </button>
+                <button class="next-btn">
+                    <svg class="next icon" xmlns="http://www.w3.org/2000/svg" viewBox="4 4 17 17">
+                        <path d="M 5 5 V 20 L 16 12 Z M 16 5 L 16 20 L 19 20 L 19 5 Z" fill="currentColor" />
+                    </svg>
+                </button>
+                <div class="volumn-contaiiner">
+                    <button class="volumn-btn">
+                        <svg class="volumn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="5 5 15 15">
+                            <path
+                                d="M5 10 5 15 7 15 11 20 11 5 7 10ZM13 5 13 20C22 18 22 6 13 5M13 8C18 9 18 16 13 17M13 10 13 15C16 15 16 10 13 10"
+                                fill="currentColor" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="duration-container">
+                    <span>0:00 / 2:12</span>
+                </div>
+                <button class="caption-btn">
+                    <svg class="caption-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -2 23 23">
+                        <path
+                            d="M0 17C0 19 1 20 3 20L20 20C22 20 23 19 23 17L23 3C23 1 22 0 20 0L3 0C1 0 0 1 0 3ZM4 7C4 6 4 6 5 6L9 6C10 6 10 6 10 7L10 9 8 9 8 8 6 8 6 12 8 12 8 11 10 11 10 13C10 14 10 14 9 14L5 14C4 14 4 14 4 13ZM13 7C13 6 13 6 14 6L18 6C19 6 19 6 19 7L19 9 17 9 17 8 15 8 15 12 17 12 17 11 19 11 19 13C19 14 19 14 18 14L14 14C13 14 13 14 13 13Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </button>
+                <button class="setting-btn">
+                    <svg class="setting-icon" xmlns="http://www.w3.org/2000/svg" viewBox="5 5 15 15">
+                        <path
+                            d="M5 11 6.15 8.359 8.013 8.607 8.553 7.896 8.224 6.375 10.99 5.142 12.013 6.577 12.983 6.55 14.027 5.172 16.515 6.377 16.078 7.95 16.772 8.662 18.416 8.239 19.769 10.914 18.362 12.021 18.376 12.932 19.859 13.77 18.777 16.506 17.057 16.101 16.28 16.868 16.635 18.447 13.876 19.603 12.995 18.163 11.976 18.152 11.11 19.603 8.284 18.551 8.462 16.921 7.874 16.3 6.3 16.566 5.188 13.951 6.363 12.903 6.377 12.078ZM10.088 10.103A1 1 0 0014.508 14.702a1 1 0 00-4.42-4.599"
+                            fill="currentColor" />
+                    </svg>
+                </button>
+                <button class="full-screen-btn">
+                    <svg class="open" xmlns="http://www.w3.org/2000/svg" viewBox="5 5 15 15">
+                        <path
+                            d="M5 5 11 5 11 7 7 7 7 11 5 11ZM14 5 14 7 18 7 18 11 20 11 20 5ZM5 14 7 14 7 18 11 18 11 20 5 20ZM15 18 15 20 20 20 20 14 18 14 18 18Z"
+                            fill="currentColor" />
+                    </svg>
+                    <svg class="close" xmlns="http://www.w3.org/2000/svg" viewBox="5 5 15 15">
+                        <path
+                            d="M5 11 11 11 11 5 9 5 9 9 5 9ZM14 5 14 11 20 11 20 9 16 9 16 5ZM5 14 11 14 11 20 9 20 9 16 5 16ZM14 14 20 14 20 16 16 16 16 20 14 20Z"
+                            fill="currentColor" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="video-controls-onVideo opacity-zero">
+            <button class="play-pause-btn">
+                <svg class="play icon" xmlns="http://www.w3.org/2000/svg" viewBox="3 4.5 16 16">
+                    <path d="M6 5 6 20 18.5 12Z" fill="currentColor" />
+                </svg>
+                <svg class="pause icon" xmlns="http://www.w3.org/2000/svg" viewBox="4 4 17 17">
+                    <path d="M 6 5 V 20 H 11 V 5 Z M 14 5 V 20 H 19 V 5 Z" fill="currentColor" />
+                </svg>
+            </button>
+        </div>
+        <!-- <video
+            src="https://firebasestorage.googleapis.com/v0/b/khaykhamstore.appspot.com/o/anime%2Fvideo%2FOnePiece%2F1.%20I'm%20Luffy!%20The%20Man%20Who%20Will%20Become%20the%20Pirate%20King.mkv?alt=media&token=a359d757-01b7-412a-a2a1-8370ce861c41"></video>
+        </video> -->
+        <video id="my-player" preload="auto">
+            <source src="./videos/1Kagegure.mkv">
+            </source>
+        </video>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var options = {
+                src: './sub/Kakeep1.ass',
+                // src: 'https://raw.githubusercontent.com/Ohmkham77/playerEg/93b8a2b237a1119b11c62d1527bc6b56eecb73c4/sub/OnePiece%20Ep1.ass',
+                rate: 1,
+                delay: 0,
+                player: video,
+                subCon: videoContainer,
+            };
+
+            window.libjass_ass(options);
+        });
+
+    </script>
+</body>
+
+</html>
